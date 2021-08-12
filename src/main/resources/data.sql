@@ -1,0 +1,3 @@
+INSERT INTO URL(url, user, id) values( 'https://www.accenture.com/de-de', 'userId', '8a8580827b3a96cd017b3a9aeec20001');
+INSERT INTO URL(url, user, id) values( 'http://localhost:8080/h2-console', 'userId', '8a8580827b3a96cd017b3a9aeec20002');
+INSERT INTO URL(url, user, id) values( 'https://www.jetbrains.com/help/idea/working-with-code-documentation.html#generate-javadoc', 'userId2', '8a8580827b3a96cd017b3a9aeec20003');

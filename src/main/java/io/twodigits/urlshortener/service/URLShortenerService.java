@@ -5,6 +5,7 @@ import io.twodigits.urlshortener.model.URL;
 import java.util.Optional;
 
 public interface URLShortenerService {
+
     /**
      * Get a list of all URLs that belong to a user.
      *
@@ -25,6 +26,7 @@ public interface URLShortenerService {
 
     /**
      * Get a specific URL of a user by its ID.
+     *
      * @param user
      * @param id
      * @return The URL object
@@ -41,8 +43,11 @@ public interface URLShortenerService {
 
     /**
      * Delete a specific URL which belongs to a user.
+     *
      * @param user
      * @param id
      */
     void deleteURL(String user, String id);
+
+    void updateURL(String user, String url, String id);
 }

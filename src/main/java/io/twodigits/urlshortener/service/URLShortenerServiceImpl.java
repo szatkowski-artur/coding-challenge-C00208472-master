@@ -9,35 +9,58 @@ import java.util.Optional;
 
 @Service
 public class URLShortenerServiceImpl implements URLShortenerService {
+
     @Autowired
     private URLRepository repository;
+
+
 
     @Override
     public Iterable<URL> listURLs(String user) {
         return repository.findByUser(user);
     }
 
+
+
     @Override
     public URL addURL(String user, String url) {
-        // TODO: Implement
-        return null;
+        URL newUrl = new URL();
+        newUrl.setUrl(url);
+        newUrl.setUser(user);
+
+        return repository.save(newUrl);
     }
+
+
 
     @Override
     public Optional<URL> getURL(String user, String id) {
         return repository.findByIdAndUser(id, user);
     }
 
+
+
     @Override
     public Optional<URL> getURL(String id) {
         return repository.findById(id);
     }
 
+
+
     @Override
     public void deleteURL(String user, String id) {
         Optional<URL> url = repository.findByIdAndUser(id, user);
-        if(url.isPresent()) {
-            repository.delete(url.get());
-        }
+        url.ifPresent(value -> repository.delete(value));
+    }
+
+
+
+    public void updateURL(String user, String url, String id) {
+
+        URL newURL = new URL();
+        newURL.setUser(user);
+        newURL.setUrl(url);
+        newURL.setId(id);
+        repository.save(newURL);
     }
 }
